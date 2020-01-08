@@ -1,0 +1,6 @@
+An Unidentified User in the server is leaking important information through his website handle (ip_address).
+Upon further investigation we came to know :
+ 1). His name looks like "pragyanX" where X is an integer
+ 2). He has used his own name to create the credentials in both the website and virtualhost machine
+
+Find out what he has leaked in (ip address) ?
