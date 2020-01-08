@@ -1,0 +1,5 @@
+Congrats! This was way too easy :P
+
+This is the key:
+
+p_ctf{s0rry_6ut_1_@m_n0t_@_r060t}
