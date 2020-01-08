@@ -74,6 +74,7 @@ Now these are clearly encrypted. If we decrypt these using basic SHA256 Decrypti
 Now let's combine them and check again
 
 * 8f068b017cd807fd3b8c684dea2f8156c82358dfb202ce9cfddc34e13d403fa3
+
 Again it gives invalid answer
 But as the question says "up can be down", just reverse the order and try-
 
