@@ -90,7 +90,7 @@ $ steghide extract -sf mrRobot.jpg
 Enter Passphrase: avium
 wrote extracted data to "flag.txt"
 $ cat flag.txt
-Congrats! This was way too wasy :P
+Congrats! This was way too easy :P
 
 This is the key:
 
