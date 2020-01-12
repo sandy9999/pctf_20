@@ -5,4 +5,4 @@ DATABASE:
 CREATE USER:
  adduser pragyan1800121
 
-Display the login page and index.php using href.
+Display the includes/login.php and index.php using href.

@@ -1,14 +1,5 @@
 <?php
 
-//  initially thought of using set passwords for which type juggling vulnerability can be exploited
-//  but was not good. any suggestions? 
-
-
-// function hashpassword($password,$username){
-//    $hashedusername=md5($username);
-//    $specialchar=substr($hashedusername, 0, 2);
-//    return $specialchar.$password;
-// }
 
 if(isset($_POST['signup']))
 {
@@ -37,8 +28,8 @@ if(isset($_POST['signup']))
       	$row=mysqli_stmt_num_rows($stmt);
       	if($row>0)
       	{
-        header("Location:../index.php?error=useralreadyexists");
-    	exit();
+         header("Location:../index.php?error=useralreadyexists");
+    	   exit();
       	}
       	else
       	{
