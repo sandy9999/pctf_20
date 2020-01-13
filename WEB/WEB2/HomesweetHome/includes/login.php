@@ -5,7 +5,7 @@ if(isset($_POST['login']))
   $name= $_POST['username'];
   $passwd= $_POST['password'];
   $frontendprint= $_POST['special_seq'];
-  if(empty($name) || empty($passwd))
+  if(empty($name) || empty($passwd) || empty($frontendprint))
     {
       header("Location:../index.php?error=lempty123");
       exit();
@@ -28,7 +28,7 @@ if(isset($_POST['login']))
         {
         $hashpwd = $row['password'];
         $fingerprint = $row['browserfingerprint'];
-        if($passwd===$hashpwd)
+        if($passwd === $hashpwd)
            {
              if($fingerprint === $frontendprint){
               session_start();
@@ -44,14 +44,14 @@ if(isset($_POST['login']))
            }
         else
            {
-            	header("Location:../index.php?error=lmismatch");
+            	header("Location:../index.php?error=mismatch");
               exit();
            }
           
         }
         else
         {
-       	header("Location:../index.php?error=lnousr");
+       	header("Location:../index.php?error=nousr");
         exit();
         }
     }

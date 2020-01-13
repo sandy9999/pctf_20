@@ -9,7 +9,7 @@ if(isset($_POST['signup']))
   $frontendprint= $_POST['special_seq'];
   if(empty($username) || empty($passwd) || empty($frontendprint) )
     {
-      header("Location:../index.php?error=empty");
+      header("Location:../index.php?error=empty".$username.$passwd.$frontendprint);
       exit();
     }
   else

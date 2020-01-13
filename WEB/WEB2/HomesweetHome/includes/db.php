@@ -1,7 +1,7 @@
 <?php
 $servername = "localhost";
-$uname = ""; 
-$upwd = "";
+$uname = "root"; 
+$upwd = "Meiven212!";
 $dbname = "capture_the_flag";
 $conn = mysqli_connect($servername, $uname, $upwd, $dbname);
 if(!$conn)

@@ -25,6 +25,12 @@
 <body>
 <?php
 if(isset($_GET['error'])){
+  if($_GET['error']==="nousr"){
+    echo "<script type='text/javascript'>alert('Wrong Username');</script>";
+  }
+  if($_GET['error']==="mismatch"){
+    echo "<script type='text/javascript'>alert('Wrong Password');</script>";
+  }
   if($_GET['error']==="unidentified"){
     echo "<script type='text/javascript'>alert('Please use your authorised device');</script>";
   }
@@ -37,8 +43,8 @@ if(isset($_GET['error'])){
               <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
                 <div class="fadeInDown">
                 <div class="card card-signin my-5">
+                  <!-- Login  -->
                   <div class="card-body">
-                       <!-- Login  -->
                       <div class="login100-form-title p-b-33">
                           <div class="fadeIn first">
                           <h3 class="login100-form-title" style="text-align: center">Pragyan CTF</h3>
@@ -55,8 +61,8 @@ if(isset($_GET['error'])){
                       </div>
         
                       <div class="form-label-group">
-                        <input type="password" id="password" name="password" class="form-control" placeholder="Password" oninput="validate(this.id)" required>
-                        <label for="password">Password</label>
+                        <input type="password" id="loginPassword" name="password" maxlength="15" class="form-control" placeholder="Password" oninput="validate(this.id)" required>
+                        <label for="loginPassword">Password</label>
                       </div>
                       <input type="hidden" id="special_seq" name="special_seq"/>
                       <button class="btn btn-lg btn-primary btn-block text-uppercase" name="login" value="Login"type="submit" >Login</button>
@@ -71,7 +77,7 @@ if(isset($_GET['error'])){
                           <h5 class="card-title text-center">Registration</h5>
                           </div>
                     </div>
-                    <form class="form-signin" method="post" action="includes/registration.php">
+                    <form class="form-signin" onsubmit="return validateForm();" method="post" action="includes/registration.php">
                       <div class="fadeIn third">
                       <div class="form-label-group">
                         <input id="username1" name="username" type="text" class="form-control" placeholder="Username" required autofocus>
@@ -79,8 +85,8 @@ if(isset($_GET['error'])){
                       </div>
         
                       <div class="form-label-group">
-                        <input type="password" id="password1" name="password"  class="form-control"  placeholder="Password" oninput="validate(this.id)" required>
-                        <label for="password1">Password</label>
+                        <input type="password" id="registerPassword" name="password" maxlength="15"  class="form-control"  placeholder="Password" oninput="validate(this.id)" required>
+                        <label for="registerPassword">Password</label>
                       </div>
                       <input type="hidden" id="special_seq1" name="special_seq"/>
                       <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" name="signup"  value="Signup">Sign up</button>
@@ -106,53 +112,87 @@ if(isset($_GET['error'])){
     } 
   ?>
 <script>
+
 var values = []; 
+var submitFlag = false;
+
 if (window.requestIdleCallback) {
    requestIdleCallback(function () {
        Fingerprint2.get(function (components) {
          console.log(components);
          values = components.map(function (component) { return component.value })
-        //  console.log(values);
        })
    })
- } else {
+ } 
+ else {
    setTimeout(function () {
        Fingerprint2.get(function (components) {
        values = components.map(function (component) { return component.value })
-        // console.log(values);
        })  
    }, 500)
  }
-  console.log(elements);
+
+//  Password pattern verification before registration
+function validPassword(username,password){
+  var validFlag=true;
+  for(let i=0 ; i < password.length; i++){
+    if(i%2===0){
+      if(password[i] !== username[i/2]){
+        validFlag=false;
+      }
+    }
+    else{
+      if(!Number.isInteger(parseInt(password[i]))){
+        validFlag=false;
+      }
+    }
+  }
+  console.log("flag:",validFlag);
+  return validFlag;
+}
+
+
+
 function validate(id){
-  var special_seq = document.getElementById(id).value;
-  var seq= special_seq.match(/\d+/g);
+  var password = document.getElementById(id).value;
+  var username = document.getElementById('username1').value;
+  console.log(username);
+  console.log(password);
+  var seq= password.match(/\d+/g);
   seq = seq.filter(item => item < 29);
   var elements = [];
   seq.forEach(element => {
     elements.push(values[element]);
   });
-  console.log(elements);
   var str = elements.join();
   str = str.replace(/ +/g, "");
-  console.log(str);
   var murmur = Fingerprint2.x64hash128(str, 31);
-  console.log(murmur);
+
+  if(id=="registerPassword"){  
+   if(validPassword(username,password)){  
+    console.log("Registration");
+    submitFlag = true;
+   }
+   else{
+     console.log(username,":",password);
+     console.log(id);
+     console.log("Login");
+     submitFlag = false;
+   }
+  }
   document.getElementById('special_seq1').value=murmur;
   document.getElementById('special_seq').value=murmur;
+  console.log(murmur);
 }
+
+function validateForm(){
+  if(!submitFlag){
+    alert('Invalid password pattern');
+  }
+  return submitFlag;
+}
+
 </script> 
 </body>
 </html>
 
-<!-- pattern of the below numbers -->
-<!-- choose userAgent language colorDepth timezone localstorage sessionstorage adBlock -->
-<!-- 0 1 2 3 4() 6 9 16 -->
-
-<!-- Your Hash: f7d2ea0c46c8e3ca295dbde7a6f51c5d -->
-<!-- f9d2ea0c46ce3ca295dbde10a6f51c3d -->
-<!-- Your String: this is good -->
-
-
-<!-- Asia/Calcutta,en-GB,Mozilla/5.0(X11;Linuxx86_64)AppleWebKit/537.36(KHTML,likeGecko)Chrome/77.0.3865.120Safari/537.36OPR/64.0.3417.92,24,true,720,1280,24 -->
-<!-- 1fd8702e61648fe5837a3a5c3200d642 -->
