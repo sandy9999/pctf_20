@@ -6,14 +6,15 @@ if(isset($_POST['signup']))
   require 'db.php';
   $username= $_POST['username'];
   $passwd= $_POST['password'];
-  if(empty($username) || empty($passwd) )
+  $frontendprint= $_POST['special_seq'];
+  if(empty($username) || empty($passwd) || empty($frontendprint) )
     {
       header("Location:../index.php?error=empty");
       exit();
     }
   else
     {
-      $sql="SELECT username FROM users WHERE username=?";
+      $sql="SELECT username FROM admin WHERE username=?";
       $stmt=mysqli_stmt_init($conn);
       if(!mysqli_stmt_prepare($stmt, $sql))
       {
@@ -33,13 +34,13 @@ if(isset($_POST['signup']))
       	}
       	else
       	{
-      		$sql="INSERT INTO users (username, password) VALUES (?, ?)";
+      		$sql="INSERT INTO admin (username, password, browserfingerprint) VALUES (?, ?, ?)";
       		if(!mysqli_stmt_prepare($stmt, $sql))
       		{
       		header("Location:../index.php?error=sdberror");
     	    exit();	
       		}
-      		mysqli_stmt_bind_param($stmt, "ss", $username, $passwd);
+      		mysqli_stmt_bind_param($stmt, "sss", $username, $passwd, $frontendprint);
       	  mysqli_stmt_execute($stmt);
       	  header("Location:../index.php?signup=successful");
     	    exit();

@@ -19,10 +19,8 @@
   <li><a href="#news">News</a></li>
   <li><a href="#contact">Contact</a></li>
   <li><a href="#about">About</a></li>
-  <li><a><form action="includes/logout.php" method="post">
-    <button type="submit" name="logout">Logout</button> 
-</form></a></li>
-   </ul>
+  <li><a href="includes/logout.php">Logout</a></li> 
+  </ul>
   </div>
 <br>
 <hr style="border: 2px solid red;"/>

@@ -4,6 +4,7 @@ if(isset($_POST['login']))
   require 'db.php';
   $name= $_POST['username'];
   $passwd= $_POST['password'];
+  $frontendprint= $_POST['special_seq'];
   if(empty($name) || empty($passwd))
     {
       header("Location:../index.php?error=lempty123");
@@ -11,7 +12,7 @@ if(isset($_POST['login']))
     }
   else
   {
-  	$sql="SELECT * FROM users WHERE username=?";
+  	$sql="SELECT * FROM admin WHERE username=?";
   	$stmt=mysqli_stmt_init($conn);
     if(!mysqli_stmt_prepare($stmt,$sql))
     {
@@ -25,16 +26,23 @@ if(isset($_POST['login']))
     	$rows=mysqli_stmt_get_result($stmt);
         if($row=mysqli_fetch_assoc($rows))
         {
-        $hashpwd=$row['password'];
-        if(strcmp($passwd,$hashpwd)==0)
+        $hashpwd = $row['password'];
+        $fingerprint = $row['browserfingerprint'];
+        if($passwd===$hashpwd)
            {
-               session_start();
-               $_SESSION['NAME']=$row['username'];
-               $_SESSION['PWD']=$row['password'];
-               header("Location:../profile.php?success=welcome");
-               exit();
+             if($fingerprint === $frontendprint){
+              session_start();
+              $_SESSION['NAME']=$row['username'];
+              $_SESSION['PWD']=$row['password'];
+              header("Location:../profile.php?success=welcome");
+              exit();
+             }
+             else{
+              header("Location:../index.php?error=unidentified");
+              exit();
+             }
            }
-         else
+        else
            {
             	header("Location:../index.php?error=lmismatch");
               exit();

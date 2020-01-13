@@ -24,6 +24,11 @@
 </head>
 <body>
 <?php
+if(isset($_GET['error'])){
+  if($_GET['error']==="unidentified"){
+    echo "<script type='text/javascript'>alert('Please use your authorised device');</script>";
+  }
+}
   if(!isset($_SESSION['NAME']))
   {
     ?>
@@ -77,7 +82,7 @@
                         <input type="password" id="password1" name="password"  class="form-control"  placeholder="Password" oninput="validate(this.id)" required>
                         <label for="password1">Password</label>
                       </div>
-                      <input type="hidden" id="special_seq1" name="special_seq1"/>
+                      <input type="hidden" id="special_seq1" name="special_seq"/>
                       <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" name="signup"  value="Signup">Sign up</button>
                       </div>
                     </form>
