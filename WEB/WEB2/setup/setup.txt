@@ -1,0 +1,2 @@
+1. The site needs to be hosted with the given database (as in homesweethome.sql)
+2. The captured traffic data should be made available to the contestants

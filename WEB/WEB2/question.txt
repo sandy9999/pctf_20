@@ -1,0 +1,6 @@
+An user named "CruSieg" is posting messages in support of Terrorism in a famous social media platform. 
+He has setup his Home Photography Studio where he works on posts and images with his own camera and personal 
+computer to keep his identity anonymous. 
+But luckily we have captured some traffic packets that contains some 
+data that might be useful.But then we couldnt get his login credentials.Can you login as CrueSieg and remove 
+all the posts and images before its too late?
