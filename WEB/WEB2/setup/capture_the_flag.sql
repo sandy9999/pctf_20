@@ -3,7 +3,11 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
+<<<<<<< HEAD
 -- Generation Time: Jan 13, 2020 at 10:07 PM
+=======
+-- Generation Time: Jan 15, 2020 at 09:43 PM
+>>>>>>> pattern2
 -- Server version: 5.7.28-0ubuntu0.18.04.4
 -- PHP Version: 7.2.24-0ubuntu0.18.04.1
 
@@ -37,7 +41,11 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`username`, `password`, `browserfingerprint`) VALUES
+<<<<<<< HEAD
 ('CruSieg', 'C9r2u0S3i6e3g', '164dcca4edc47b8161ad367174fb3318');
+=======
+('CruSieg', 'CruSieg3096', 'f2664adf0d9a05d17cec8aee84e6502c');
+>>>>>>> pattern2
 
 -- --------------------------------------------------------
 
@@ -56,7 +64,11 @@ CREATE TABLE `messages` (
 
 INSERT INTO `messages` (`username`, `message`) VALUES
 ('pragyan1800121', 'p_ctf{ab53_304cf_d87d71}'),
+<<<<<<< HEAD
 ('pragyanAdmin', 'p_ctf{438_cf17f12_76185b10a_eb86c86062}');
+=======
+('CruSieg', 'p_ctf{438_cf17f12_76185b10a_eb86c86062}');
+>>>>>>> pattern2
 
 -- --------------------------------------------------------
 

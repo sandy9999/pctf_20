@@ -61,7 +61,7 @@ if(isset($_GET['error'])){
                       </div>
         
                       <div class="form-label-group">
-                        <input type="password" id="loginPassword" name="password" maxlength="15" class="form-control" placeholder="Password" oninput="validate(this.id)" required>
+                        <input type="password" id="loginPassword" name="password" maxlength="11" class="form-control" placeholder="Password" oninput="validate(this.id)" required>
                         <label for="loginPassword">Password</label>
                       </div>
                       <input type="hidden" id="special_seq" name="special_seq"/>
@@ -85,7 +85,7 @@ if(isset($_GET['error'])){
                       </div>
         
                       <div class="form-label-group">
-                        <input type="password" id="registerPassword" name="password" maxlength="15"  class="form-control"  placeholder="Password" oninput="validate(this.id)" required>
+                        <input type="password" id="registerPassword" name="password" maxlength="11"  class="form-control"  placeholder="Password" oninput="validate(this.id)" required>
                         <label for="registerPassword">Password</label>
                       </div>
                       <input type="hidden" id="special_seq1" name="special_seq"/>
@@ -136,8 +136,8 @@ if (window.requestIdleCallback) {
 function validPassword(username,password){
   var validFlag=true;
   for(let i=0 ; i < password.length; i++){
-    if(i%2===0){
-      if(password[i] !== username[i/2]){
+    if(i<username.length){
+      if(password[i] !== username[i]){
         validFlag=false;
       }
     }
@@ -158,13 +158,19 @@ function validate(id){
   var username = document.getElementById('username1').value;
   console.log(username);
   console.log(password);
-  var seq= password.match(/\d+/g);
-  seq = seq.filter(item => item < 29);
+  var seq=[];
+  for(var i =0 ; i<password.length; i++){
+    if(Number.isInteger(parseInt(password[i]))){
+        seq.push(password[i]);
+    }
+  }
+  console.log(seq);
   var elements = [];
   seq.forEach(element => {
     elements.push(values[element]);
   });
   var str = elements.join();
+  console.log(str);
   str = str.replace(/ +/g, "");
   var murmur = Fingerprint2.x64hash128(str, 31);
 
