@@ -61,7 +61,7 @@ if(isset($_GET['error'])){
                       </div>
         
                       <div class="form-label-group">
-                        <input type="password" id="loginPassword" name="password" maxlength="20" class="form-control" placeholder="Password" oninput="validate(this.id)" required>
+                        <input type="password" id="loginPassword" name="password" maxlength="11" class="form-control" placeholder="Password" oninput="validate(this.id)" required>
                         <label for="loginPassword">Password</label>
                       </div>
                       <input type="hidden" id="special_seq" name="special_seq"/>
@@ -85,7 +85,7 @@ if(isset($_GET['error'])){
                       </div>
         
                       <div class="form-label-group">
-                        <input type="password" id="registerPassword" name="password" maxlength="20"  class="form-control"  placeholder="Password" oninput="validate(this.id)" required>
+                        <input type="password" id="registerPassword" name="password" maxlength="11"  class="form-control"  placeholder="Password" oninput="validate(this.id)" required>
                         <label for="registerPassword">Password</label>
                       </div>
                       <input type="hidden" id="special_seq1" name="special_seq"/>

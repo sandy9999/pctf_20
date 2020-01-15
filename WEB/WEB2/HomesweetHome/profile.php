@@ -9,7 +9,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Form Builder</title>
+	<title>Pragyan CTF</title>
   <link rel="stylesheet" href="css/index.css">
 </head>
 <body class="profile">
