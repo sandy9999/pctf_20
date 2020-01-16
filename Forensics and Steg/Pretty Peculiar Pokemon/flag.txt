@@ -1,0 +1,3 @@
+Congrats you found the hidden flag
+
+p_ctf{Y0U_$0LVED_1HE_H!DDEN_P0KEM0N}
