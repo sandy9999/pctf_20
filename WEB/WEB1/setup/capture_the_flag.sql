@@ -36,7 +36,7 @@ CREATE TABLE `messages` (
 --
 
 INSERT INTO `messages` (`username`, `message`) VALUES
-('pragyan1800121', 'p_ctf{ab53_304cf_d87d71}');
+('pragyan1800121', 'p_ctf{5ecur1ty_v1c3_he4d_15_0ur_6uy}');
 
 -- --------------------------------------------------------
 

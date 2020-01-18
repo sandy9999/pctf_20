@@ -109,15 +109,6 @@ class pageContent{
                       </div>
                     </form>
                   </div>
-                  <div class="fadeIn fourth">
-                  <div class="d-flex justify-content-center footer_div">
-                  <span class="txt1">
-                      MADE WITH <span style="color: darkred">❤️</span> BY  <a href="https://delta.nitt.edu" class="txt2 hov1" target="_blank">
-                        DELTA FORCE
-                      </a>   
-                  </span>
-                  </div>
-                  </div>
                 </div>
                 </div>
               </div>
