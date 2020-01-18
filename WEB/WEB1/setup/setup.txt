@@ -1,0 +1,8 @@
+DATABASE:
+ import database from capture_the_flag.sql
+ update mysql server credentials in "includes/db.php"
+ 
+CREATE USER:
+ adduser pragyan1800121
+
+Display the includes/login.php and index.php using href.
