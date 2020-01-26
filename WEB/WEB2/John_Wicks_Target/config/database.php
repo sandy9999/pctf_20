@@ -1,4 +1,5 @@
 <?php
+
 class Database{
 
     private $hostname;
@@ -10,8 +11,8 @@ class Database{
     public function connect(){
       $this->hostname = "localhost";
       $this->dbname = "capture_the_flag";
-      $this->username = "root";
-      $this->password = "Meiven212!";
+      $this->username = "";
+      $this->password = "";
 
       $this->conn = new mysqli($this->hostname, $this->username, $this->password, $this->dbname);
       if($this->conn->connect_errno){

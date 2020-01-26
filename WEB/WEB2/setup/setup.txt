@@ -1,0 +1,13 @@
+1. Run following commands to generate RSA key pairs. ssh-keygen isnt working with jwt-RS256(not sure why)
+    $ openssl genrsa -out id_rsa_jwt.pem 2048
+    $ openssl rsa -in id_rsa_jwt.pem -pubout > id_rsa_jwt.pub
+
+   Have those files inside config folder
+   Need to check whether Production server`s key pairs work with JWT.  
+
+2. Makesure to install php-jwt using composer
+
+3. Change database credentials.
+
+4. Setup the mysql query
+5. A sample postman request needs to displayed.With actual Ipaddress of the production server in URL.
