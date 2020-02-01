@@ -1,0 +1,6 @@
+John wick suffers from amnesia as a result of an accident. He forgot his next target. He is sure that 
+he must have saved target`s name in his Continental profile username:JohnWick.(#ipaddress). He has forgot his password.
+Help John Wick retrieve his next target`s name before he comes for John Wick.
+
+Its an API using "username","password" fields in /v1/login.ph, /v1/register.php, /v1/dashboard.php 
+for login,register and viewing profile.
