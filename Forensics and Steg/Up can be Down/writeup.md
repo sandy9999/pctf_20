@@ -3,7 +3,7 @@
 
 > Find and submit the {flag}
 >
-> [./file/mrRobot.jpg](mrRobot.jpg)
+> ![mrRobot.jpg](./file/mrRobot.jpg)
 
 ## Write-up
 Given a simple file-
