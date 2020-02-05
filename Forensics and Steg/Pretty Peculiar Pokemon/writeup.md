@@ -3,7 +3,7 @@
 
 > Find and submit the {flag}
 >
-> [./File/Challenge.tar.xz](Challenge.tar.xz)
+> ![Challenge.tar.xz](./File/Challenge.tar.xz)
 
 ## Write-up
 Given a simple file-
