@@ -1,0 +1,3 @@
+Luis is very fond of music. Recently he developed a keen interest in CTF challenges. He makes a challenge for yankee and asks him if he could break it and find the code from it. Help yankee to find the secret code.
+
+The flag format - p_ctf{"OBTAINED_SECRET_CODE"}
