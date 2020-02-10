@@ -61,7 +61,10 @@
   </div>
 <br>
 <?php
-echo "<div class='imgcontain' style='margin:10px auto;'><img id='profilepic' src='".$picture."' class='img-thumbnail float-left' height='250' width='250'><div class='imgoverlay'></div><div id='imgbutton'><a href='takepicture.php'>Change Photo</a></div></div>";
+ob_start();
+include $picture;
+$html = ob_get_clean();
+echo "<div class='imgcontain' style='margin:10px auto;'><img id='profilepic' src='data:image/jpeg;charset=utf-8;base64,".$html."' class='img-thumbnail float-left' height='250' width='250'><div class='imgoverlay'></div><div id='imgbutton'><a href='takepicture.php'>Change Photo</a></div></div>";
 ?>
 <hr style="border: 2px solid red;"/>
 <div class="footer">Pragyan 2020!</div>

@@ -6,7 +6,7 @@
     $image=$_POST['uploadimage'];
     $image = str_replace('data:image/jpeg;base64,', '', $image);
     $image = str_replace(' ', '+', $image);
-    $fileData = base64_decode($image);
+    $fileData = $image;
     $sql="SELECT * FROM instabook WHERE username='".$name."'";
     $rows=$conn->query($sql);
     $row=$rows->fetch_assoc();

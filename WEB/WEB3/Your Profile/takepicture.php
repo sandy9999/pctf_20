@@ -45,7 +45,6 @@ $name=$_SESSION['NAME'];
 <div class="col-sm-4"></div>
 </div>
 <?php 
-session_start();
 include 'includes/db.php';
 ?>
 <script>
