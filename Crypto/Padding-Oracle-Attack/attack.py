@@ -1,54 +1,42 @@
-from util import xor
-from aes_cbc import AES_CBC
-import itertools as it
+from base64 import b64decode,b64encode
+from test import decrypt
 
-aes_cbc=AES_CBC(b'this is a secret',b'call me a doctor')
+BLOCK_SIZE = 16  
+INIT_VEC = 'This is an IV456' # this will be given away
+my_key = 'this is a secret' # !important this won't be given away
 
-cipher=b'\x12D\xc4\x83\xb5\x92\xe0\x9f]I~\x12\xdb\x8f\xce\xdd2\xe8J1\xce\xcfV\x92,\xed\xdc\x85\xcc\xd0:F'
-cipher=bytearray(cipher)
-cipher=b'call me a doctor'+cipher
+ciphertext="TE2GVo0jKwXNdk+xheq5m3HlKf8EKeqDh6RA3R3y8eSs5XS2TMt04b6GJ+aabeSz"
 
-def split_blocks(data):
-    length=len(data)
-    blocks=[]
-    for i in range(int(length/16)):
-        blocks.append(data[i*16:(i+1)*16])
-        
-    return blocks
+def numberify(characters):
+    return map(lambda x: ord(x), characters)
 
-def find_bytes(blocks): #prevBlock and nextBlock,nextBlock is one we decode
-    c_prime=bytearray(blocks[0])
+def blockify(text, block_size=BLOCK_SIZE):
+    return [text[i:i+block_size] for i in range(0, len(text), block_size)]
 
-    plaintext_bytes=bytearray([0 for i in range(16)])
-    
-    for i in range(16):      
-        expected_padding=bytearray([0 for a in range(16-i)]+[(i+1) for b in range(i)])
-        c_prime=xor(xor(expected_padding,plaintext_bytes),blocks[0])
-        print(c_prime)
+def stringify(numbers):
+    return "".join(map(lambda x: chr(x), numbers))
 
-        for byte in it.chain(range(blocks[0][15-i]+1,256),range(0,blocks[0][15-i]+1)):
-            c_prime[15-i]=byte
-            to_test=bytes(c_prime+blocks[1])
+IV = numberify(INIT_VEC)
+blocks = blockify(numberify(b64decode(ciphertext)))
+
+cleartext = []
+for block_num, (c1, c2) in enumerate(zip([IV]+blocks, blocks)):
+    i2 = [0] * 16
+    p2 = [0] * 16
+    for i in xrange(15,-1,-1):
+        for b in xrange(0,256):
+            prefix = c1[:i]
+            pad_byte = (BLOCK_SIZE-i)
+            suffix = [pad_byte ^ val for val in i2[i+1:]]
+            evil_c1 = prefix + [b] + suffix
             try:
-                aes_cbc.decrypt(to_test)
-                plaintext_bytes[15-i]=(byte^(i+1)^blocks[0][15-i])
+                decrypt(stringify(c2), my_key, stringify(evil_c1)) # this will be taken care by the oracle
             except:
                 pass
-    
-    return plaintext_bytes
+            else:
+                i2[i] = evil_c1[i] ^ pad_byte
+                p2[i] = c1[i] ^ i2[i]
+                break
+    cleartext+=p2
 
-def find_plaintext(ciphertext):
-    ciphertext=bytearray(ciphertext)
-    blocks=split_blocks(ciphertext)
-
-    plaintext=b""
-
-    for i in range(len(blocks)-1):
-        plaintext+=find_bytes(blocks[i:i+2])
-    
-    print(plaintext)
-
-find_plaintext(cipher)
-
-
-
+print stringify(cleartext)
