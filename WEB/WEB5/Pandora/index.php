@@ -1,31 +1,3 @@
-<?php
-
-class pageContent{
-  private $file_name;
-  private $newContent;
-
-  function __construct() 
-  { 
-    $this->file_name="txt/content.txt"; 
-    $file = file_get_contents($this->file_name);
-    $this->newContent=$file;
-  } 
-
-  function setContent($newContent){
-    $this->newContent=$newContent;
-  }
-
-  function __destruct() 
-  { 
-    $fd=fopen($this->file_name,"w");
-    fwrite($fd,$this->newContent);
-    fclose($fd);
-  } 
-}
-
-
-
-?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -53,7 +25,7 @@ class pageContent{
 </head>
 <body>
 <?php
-session_start();
+  session_start();
   if(!isset($_SESSION['NAME']))
   {
     ?>
@@ -116,24 +88,11 @@ session_start();
             </div>
           </div>
 <?php
-  }
+  }  
   else{
     header("Location:profile.php");
     exit();	
   }
-  
-function setFooter(){
-  if(isset($_GET['newFooter'])){
-    $newFooter=unserialize(base64_decode($_GET["newFooter"]));
-    echo '<div class="footer">'+$newFooter+'</div>';
-  }
-  else{
-    echo '<div class="footer">Pragyan 2020!</div>';
-  }
-}
-
-setFooter();
-
 ?>
 </body>
 </html>
