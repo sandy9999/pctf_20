@@ -1,7 +1,7 @@
 <?php
   session_start();
   if(!isset($_SESSION['NAME'])){
-    header("Location:../index.php?error=ldberror");
+    header("Location:index.php?error=ldberror");
     exit();	
   }
   require 'includes/db.php';
