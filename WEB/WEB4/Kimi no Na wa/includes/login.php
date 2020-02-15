@@ -11,7 +11,7 @@ if(isset($_POST['login']))
     }
   else
   {
-  	$sql="SELECT * FROM instabook WHERE username=?";
+  	$sql="SELECT * FROM kimiusers WHERE username=?";
   	$stmt=mysqli_stmt_init($conn);
     if(!mysqli_stmt_prepare($stmt,$sql))
     {
@@ -26,14 +26,15 @@ if(isset($_POST['login']))
         if($row=mysqli_fetch_assoc($rows))
         {
         $hashpwd=$row['password'];
-        if($passwd===$hashpwd)
+        if(strcmp($passwd,$hashpwd)==0)
            {
-              session_start();
-              $_SESSION['NAME']=$row['username'];
-              header("Location:../profile.php?success=welcome");
-              exit();
+               session_start();
+               $_SESSION['NAME']=$row['username'];
+               $_SESSION['PWD']=$row['password'];
+               header("Location:../profile.php?success=welcome");
+               exit();
            }
-        else
+         else
            {
             	header("Location:../index.php?error=lmismatch");
               exit();

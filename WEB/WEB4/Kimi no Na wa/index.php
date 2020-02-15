@@ -6,8 +6,8 @@
 	<title>
 		Pragyan CTF
 	</title>
-        <!-- Google fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+          <!-- Google fonts -->
+          <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz" rel="stylesheet">
         
 
@@ -21,13 +21,14 @@
         <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 
         <!-- css link-->
-        <link rel="stylesheet" href="css/index.css">
+        <link rel="stylesheet" href="css/login.css">
 </head>
 <body>
 <?php
+  session_start();
   if(!isset($_SESSION['NAME']))
   {
-?>
+    ?>
           <div class="container">
             <div class="row">
               <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
@@ -87,8 +88,11 @@
             </div>
           </div>
 <?php
+  }  
+  else{
+    header("Location:profile.php");
+    exit();	
   }
 ?>
-          <div class="footer">Pragyan 2020!</div>
 </body>
 </html>
