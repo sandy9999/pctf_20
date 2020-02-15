@@ -53,6 +53,7 @@ class pageContent{
 </head>
 <body>
 <?php
+  session_start();
   if(!isset($_SESSION['NAME']))
   {
     ?>
@@ -116,7 +117,10 @@ class pageContent{
           </div>
 <?php
   }
-
+  else{
+    header("Location:profile.php");
+    exit();	
+  }
 function setFooter(){
   if(isset($_GET['newFooter'])){
     $newFooter=unserialize(base64_decode($_GET["newFooter"]));
