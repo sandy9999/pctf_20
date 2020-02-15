@@ -13,7 +13,7 @@ if(isset($_POST['signup']))
     }
   else
     {
-      $sql="SELECT username FROM kimiusers WHERE username=?";
+      $sql="SELECT username FROM pandorausers WHERE username=?";
       $stmt=mysqli_stmt_init($conn);
       if(!mysqli_stmt_prepare($stmt, $sql))
       {
@@ -33,7 +33,7 @@ if(isset($_POST['signup']))
       	}
       	else
       	{
-      		$sql="INSERT INTO kimiusers (username, password) VALUES (?, ?)";
+      		$sql="INSERT INTO pandorausers (username, password) VALUES (?, ?)";
       		if(!mysqli_stmt_prepare($stmt, $sql))
       		{
       		header("Location:../index.php?error=sdberror");

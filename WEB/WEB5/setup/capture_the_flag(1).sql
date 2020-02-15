@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Feb 15, 2020 at 08:43 PM
+-- Generation Time: Feb 16, 2020 at 01:12 AM
 -- Server version: 5.7.29-0ubuntu0.18.04.1
 -- PHP Version: 7.2.24-0ubuntu0.18.04.2
 
@@ -121,6 +121,28 @@ CREATE TABLE `kimiusers` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `locations`
+--
+
+CREATE TABLE `locations` (
+  `base` varchar(25) NOT NULL,
+  `latitude` varchar(255) NOT NULL,
+  `longitude` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `locations`
+--
+
+INSERT INTO `locations` (`base`, `latitude`, `longitude`) VALUES
+('base1', '51.5074° N', '0.1278° W'),
+('base2', '78.5000° S', '11.4578° E'),
+('base3', '99.4558° S', '38.4532° E'),
+('base2', 'p_ctf{t1ll_my_l45t_bre47h_p4ndor4_4ever}', '11.4578° E');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `messages`
 --
 
@@ -137,6 +159,63 @@ INSERT INTO `messages` (`username`, `message`) VALUES
 ('pragyan1800121', 'p_ctf{ab53_304cf_d87d71}'),
 ('CruSieg', 'p_ctf{438_cf17f12_76185b10a_eb86c86062}'),
 ('JohnWick', 'p_ctf{h3_k1113d_my_d09_ju57_91v3_m3_4_9un}');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pandoralocations`
+--
+
+CREATE TABLE `pandoralocations` (
+  `base` varchar(255) NOT NULL,
+  `latitude` varchar(255) NOT NULL,
+  `longitude` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `pandoralocations`
+--
+
+INSERT INTO `pandoralocations` (`base`, `latitude`, `longitude`) VALUES
+('base1', '10.0054 N', '45.0245E'),
+('base2', 'p_ctf{t1ll_my_l45t_bre47h_p4ndor4_4ever}', '56.0245e'),
+('base3', '45.9999 S', '66.04578W');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pandoramsg`
+--
+
+CREATE TABLE `pandoramsg` (
+  `username` varchar(255) NOT NULL,
+  `msg` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `pandoramsg`
+--
+
+INSERT INTO `pandoramsg` (`username`, `msg`) VALUES
+('hello', 'hellomsg');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pandorausers`
+--
+
+CREATE TABLE `pandorausers` (
+  `username` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `pandorausers`
+--
+
+INSERT INTO `pandorausers` (`username`, `password`) VALUES
+('hello', 'hello');
 
 -- --------------------------------------------------------
 

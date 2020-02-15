@@ -11,7 +11,7 @@ if(isset($_POST['login']))
     }
   else
   {
-  	$sql="SELECT * FROM kimiusers WHERE username=?";
+  	$sql="SELECT * FROM pandorausers WHERE username=?";
   	$stmt=mysqli_stmt_init($conn);
     if(!mysqli_stmt_prepare($stmt,$sql))
     {
@@ -31,7 +31,7 @@ if(isset($_POST['login']))
                session_start();
                $_SESSION['NAME']=$row['username'];
                $_SESSION['PWD']=$row['password'];
-               header("Location:../profile.php?success=welcome");
+               header("Location:../profile.php?success=welcome&NAME=".$_SESSION['NAME']);
                exit();
            }
          else

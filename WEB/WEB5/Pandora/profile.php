@@ -29,14 +29,16 @@
  $name= $_GET['NAME'];
  if(empty($name))
  {
-  echo "<tr><td>No messages for you</td></tr>";
+  echo "<tr><td>You have not written any messages yet</td></tr>";
  }
  else{
-  $sql="SELECT * FROM kimimsg WHERE username='".$name."'";
+  $sql="SELECT * FROM pandoramsg WHERE username='".$name."'";
   $result = $conn->query($sql);
+  echo $sql;
+  echo $conn->error;
   if ($result->num_rows > 0) {
    $i=0;
-   echo "<h3>Your draft messages</h3>";
+   echo "<h3>Your short notes</h3>";
    while($row = $result->fetch_assoc()) {
      if($i==0){
        echo "<tr>";
@@ -54,7 +56,7 @@
    }
   } 
   else {
-  echo "<tr><td>No messages for you</td></tr>";
+  echo "<tr><td>You have not written any messages yet</td></tr>";
   }
  }
 ?>
