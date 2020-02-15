@@ -24,6 +24,7 @@
 </head>
 <body>
 <?php
+session_start();
 if(isset($_GET['error'])){
   if($_GET['error']==="nousr"){
     echo "<script type='text/javascript'>alert('Wrong Username');</script>";
@@ -101,6 +102,10 @@ if(isset($_GET['error'])){
           <div class="footer">Pragyan 2020!</div>
   <?php 
     } 
+    else{
+      header("Location:profile.php");
+      exit();	
+    }
   ?>
 <script>
 

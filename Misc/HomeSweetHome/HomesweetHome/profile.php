@@ -1,7 +1,7 @@
 <?php
   session_start();
   if(!isset($_SESSION['NAME'])){
-    header("Location:../index.php?error=ldberror");
+    header("Location:index.php?error=ldberror");
     exit();	
   }
   require 'includes/db.php';
@@ -36,7 +36,7 @@
  $stmt=mysqli_stmt_init($conn);
  if(!mysqli_stmt_prepare($stmt,$sql))
   {
-   header("Location:../index.php?error=ldberror");
+   header("Location:index.php?error=ldberror");
    exit();	
   }
  else

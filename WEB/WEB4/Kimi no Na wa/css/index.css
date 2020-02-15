@@ -284,58 +284,22 @@
   animation-delay: 1s;
 }
 
-/* Profile Picture styling starts here */
-.imgcontain {
-  position: relative;
-  margin-top: 15px;
-  margin-left: 50px;
-  margin-bottom: 45px;
-  width: 250px;
-  height: 250px;
-}
-.imgoverlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0);
-  transition: background 0.5s ease;
-}
 
-.imgcontain:hover .imgoverlay {
-  display: block;
-  background: rgba(0, 0, 0, .3);
-}
+/* Table styling starts here */
 
-#profilepic{
-  position: absolute;
-  width: 250px;
-  height: 250px;
-  left: 0;
+table {
+  border-collapse: collapse;
+  width: auto;
+  margin: 0px auto;
 }
-
-.imgcontain:hover .title {
-  top: 90px;
+h4,h3,h2,h1{
+  align:center;
 }
-#imgbutton {
-  position: absolute;
-  width: 250px;
-  left:0;
-  top: 180px;
+th, td {
   text-align: center;
-  opacity: 0;
-  transition: opacity .35s ease;
+  padding: 20px 20px;
 }
-#imgbutton a {
-  width: 200px;
-  padding: 12px 48px;
-  text-align: center;
-  color: white;
-  border: solid 2px white;
-  z-index: 1;
-}
-.imgcontain:hover #imgbutton {
-  opacity: 1;
-}
-/* Profile Picture ends here */
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+
+/* Table styling ends here */
