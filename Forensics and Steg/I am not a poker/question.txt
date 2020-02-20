@@ -1,0 +1,1 @@
+Ron is really amazing in encryption security related stuff, but he is very bad in memorising things. He easily forgets stuff about him, like his passwords etc. Once he finds an encrypted disk image inside his system but he doesn't remember what is hidden inside it. He finds a image alongwith it. Help him to find the password and find what's hidden inside it.
