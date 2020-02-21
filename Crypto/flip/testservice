@@ -1,0 +1,14 @@
+service testservice
+{
+        disable         = no
+        socket_type     = stream
+        protocol        = tcp
+        port            = 5900
+        log_on_success += USERID 
+        log_on_failure += USERID
+        server          = /home/linux/script.sh
+        user            = root
+        instances       = UNLIMITED
+        wait            = no
+        log_type        = SYSLOG daemon debug
+}
