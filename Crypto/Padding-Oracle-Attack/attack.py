@@ -29,7 +29,9 @@ for block_num, (c1, c2) in enumerate(zip([IV]+blocks, blocks)):
             pad_byte = (BLOCK_SIZE-i)
             suffix = [pad_byte ^ val for val in i2[i+1:]]
             evil_c1 = prefix + [b] + suffix
-            try:
+            print c2
+            print stringify(c2)
+            try:  
                 decrypt(stringify(c2), my_key, stringify(evil_c1)) # this will be taken care by the oracle
             except:
                 pass

@@ -6,7 +6,6 @@ import sys
 from Crypto.Cipher import AES
 from base64 import b64encode,b64decode
 
-
 BLOCK_SIZE = 16  # bytes
 INIT_VEC = 'This is an IV456'  
 EXAMPLE_TEXT = """pctf{fl@gs_@re_not_host3d_th3y_@re_c@ptur3d}"""
@@ -39,7 +38,10 @@ def encrypt(plaintext, key, init_vec):
 def decrypt(ciphertext, key, init_vec):
     cipher = AES.new(key, AES.MODE_CBC, init_vec)
     padded_text = cipher.decrypt(ciphertext)
-    plaintext = pkcs7_depad(padded_text)
+    try:
+        plaintext = pkcs7_depad(padded_text)
+    except:
+        print "Not happening padding error!"
     return plaintext
 
 def numberify(characters):
@@ -52,4 +54,10 @@ if __name__ == "__main__":
     my_key = 'this is a secret'
     IV = numberify(INIT_VEC)
     ciphertext = encrypt(EXAMPLE_TEXT, my_key, INIT_VEC)
+    print ciphertext
     print b64encode(ciphertext)
+
+    var1=stringify([1,2,3,4,5,6,7,8,9,10,6,6,6,6,6,6])
+    print b64encode(encrypt(var1, my_key, INIT_VEC))
+
+    
