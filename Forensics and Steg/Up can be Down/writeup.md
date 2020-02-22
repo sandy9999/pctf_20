@@ -94,8 +94,8 @@ Congrats! This was way too easy :P
 
 This is the key:
 
-p_ctf{s0rry_6ut_1_@m_n0t_@_r060t}
+p_ctf{@_r0b0t_c@n_help_u_t00}
 ```
 
-The flag is `p_ctf{s0rry_6ut_1_@m_n0t_@_r060t}`.
+The flag is `p_ctf{@_r0b0t_c@n_help_u_t00}`.
 
