@@ -1,0 +1,5 @@
+DATABASE:
+ import database from capture_the_flag.sql
+ update mysql server credentials in "includes/db.php"
+ 
+Display the includes/login.php and index.php using href.
