@@ -1,5 +1,5 @@
-Congrats! This was way too easy :P
+Congrats! This was way too wasy :P
 
 This is the key:
 
-p_ctf{s0rry_6ut_1_@m_n0t_@_r060t}
+p_ctf{@_r0b0t_c@n_help_u_t00}

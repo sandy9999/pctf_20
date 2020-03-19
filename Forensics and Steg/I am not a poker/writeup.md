@@ -49,4 +49,4 @@ You will find two files inside it. One of these files will have some encrypted c
 It is a basic script which is just taking the flag string, xoring the number 1 greater the ascii value of each character with a secret length, which is 38  as given by the image file, and encrypting it using base64.
 Just reverse the algorithm over the encrypted text and you will find the flag-
 
-`p_ctf{d1ce_c@n_be_dec1eving_s0met1mes}`
+`p_ctf{d!ce_!$_n01_@lw@y$_used_f0r_p0ker}`
