@@ -41,10 +41,10 @@ wrote extracted data to "galf.txt".
 $ cat galf.txt 
 Congrats you found the hidden flag
 
-p_ctf{Y0U_$0LVED_1HE_H!DDEN_P0KEM0N}
+p_ctf{j!gglypuff_w@n1$_10_$leep_n0w}
 ```
 
-Your flag is `p_ctf{Y0U_$0LVED_1HE_H!DDEN_P0KEM0N}`.
+Your flag is `p_ctf{j!gglypuff_w@n1$_10_$leep_n0w}`.
 
 
 
