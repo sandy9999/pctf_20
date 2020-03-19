@@ -1,0 +1,8 @@
+DATABASE:
+ import database from capture_the_flag.sql
+ update mysql server credentials in "includes/db.php"
+ 
+Display the includes/login.php and index.php using href.
+
+Since both the questions web4,web5 are vulnerable to sql injections it is safe to have in them in 
+separate databse with restricted permission to avoid participants from inserting malicious injections. 
